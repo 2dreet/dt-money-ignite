@@ -4,8 +4,9 @@ export const GlobalStyle = createGlobalStyle`
   // aqui Definimos variaveis para re utilizar nos estilos
   :root {
     --background: #F0F2F5;
-    --shape: #FFFFFF
+    --shape: #FFFFFF;
     --red: #E52E4D;
+    --green: #33CC95;
     --blue: #5429CC;
 
     --blue-light: #6933FF;
