@@ -1,13 +1,10 @@
 import { useState } from 'react';
-import Modal from 'react-modal';
 import { Dashboard } from './components/Dashboard';
 import { Header } from './components/Header';
+import { NewTransactionModal } from './components/NewTrasactionModal';
 import { GlobalStyle } from './styles/global';
 
 
-// configuracao de acessibilidade id da div do index.html
-
-Modal.setAppElement("#root");
 
 export function App() {
 
@@ -29,15 +26,10 @@ export function App() {
     <>
       <Header onOpenNewTrasactionModal={handleOpenNewTrasactionModal} />
       <Dashboard />
-
-      {/* configurando a modal */}
-      <Modal 
-          isOpen={isNewTransactionModalOpen}
-          onRequestClose={handleCloseNewTrasactionModal}
-        >
-            <h2>Cadatrar Transação</h2>
-        </Modal>
-
+      <NewTransactionModal 
+        isOpen={isNewTransactionModalOpen} 
+        onRequestClone={handleCloseNewTrasactionModal}
+      />
       <GlobalStyle />
     </>
   );
