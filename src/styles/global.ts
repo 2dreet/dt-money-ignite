@@ -69,4 +69,33 @@ export const GlobalStyle = createGlobalStyle`
     cursor: not-allowed;
   }
 
+  // criado as classes para o modal de forma global para reaproveitar
+  .react-modal-overlay {
+    // background preto com transparencia
+    background: rgba(0, 0, 0, 0.5);
+
+    // para ter a posição fixa
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    // aqui aplica a centralização dos componentes filhos
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .react-modal-content {  
+    // aqui diz que vai ter 100% de largura porem com o maximo de 576px
+    width: 100%;
+    max-width: 576px;
+    background: var(--background);
+    padding: 3rem;
+    // position relative é para que os componentes filhos possam utilizar position absolute
+    position: relative;
+    border-radius: 0.24rem;
+  }
+
 `;

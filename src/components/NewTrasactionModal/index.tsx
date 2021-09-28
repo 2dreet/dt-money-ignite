@@ -10,15 +10,36 @@ interface NewTransactionModalProps {
   onRequestClone: () => void;
 }
 export function NewTransactionModal({ isOpen, onRequestClone} : NewTransactionModalProps) {
+  
+  /* configurando a modal */
   return (
-    <Container>
-       {/* configurando a modal */}
-       <Modal 
-          isOpen={isOpen}
-          onRequestClose={onRequestClone}
-        >
-            <h2>Cadatrar Transação</h2>
-        </Modal>
-    </Container>
+    <Modal 
+      isOpen={isOpen}
+      onRequestClose={onRequestClone}
+      overlayClassName="react-modal-overlay"
+      className="react-modal-content"
+    >
+        <Container>
+          <h2>Cadatrar Transação</h2>
+          
+          <input 
+            placeholder="Título" 
+          />
+
+          <input 
+            type="number" 
+            placeholder="Valor" 
+          />
+
+          <input 
+            placeholder="Categoria" 
+          />
+
+          <button type="submit">
+            Cadastrar
+          </button>
+
+        </Container>
+    </Modal>
   );
 }
