@@ -28,7 +28,7 @@ export function App() {
       <Dashboard />
       <NewTransactionModal 
         isOpen={isNewTransactionModalOpen} 
-        onRequestClone={handleCloseNewTrasactionModal}
+        onRequestClose={handleCloseNewTrasactionModal}
       />
       <GlobalStyle />
     </>
