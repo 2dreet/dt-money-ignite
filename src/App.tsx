@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Dashboard } from './components/Dashboard';
 import { Header } from './components/Header';
 import { NewTransactionModal } from './components/NewTrasactionModal';
+import { TransactionContextProvider } from './hooks/useTransactions';
 import { GlobalStyle } from './styles/global';
 
 
@@ -23,7 +24,7 @@ export function App() {
   }
 
   return (
-    <>
+    <TransactionContextProvider>
       <Header onOpenNewTrasactionModal={handleOpenNewTrasactionModal} />
       <Dashboard />
       <NewTransactionModal 
@@ -31,6 +32,6 @@ export function App() {
         onRequestClose={handleCloseNewTrasactionModal}
       />
       <GlobalStyle />
-    </>
+    </TransactionContextProvider>
   );
 }

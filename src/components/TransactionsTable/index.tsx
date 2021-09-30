@@ -1,26 +1,9 @@
-import { useEffect, useState } from 'react';
-import { api } from '../../services/api';
+import { useTransactions } from '../../hooks/useTransactions';
+import { getNumberToMoney } from '../../util/FormatNumber';
 import { Container } from './styles';
 
-
-interface Transaction {
-  id: number;
-  title: string;
-  amount: number;
-  type: string;
-  category: string;
-  createAt: string;
-}
-
 export function TrasactionsTable(){
-
-  const [transactions, setTransactions]= useState<Transaction[]>([]);
-
-  useEffect(()=>{
-    api.get('transactions')
-    .then( response => setTransactions(response.data.transactions))
-  }, []);
-
+  const {transactions} = useTransactions();
   return(
     <Container>
       <table>
@@ -38,10 +21,8 @@ export function TrasactionsTable(){
             <tr key={transaction.id}>
               <td>{transaction.title}</td>
               <td className={transaction.type}>
-                {new Intl.NumberFormat('pr-BR', {
-                  style: 'currency',
-                  currency: 'BRL'
-                }).format(transaction.amount)}
+                {transaction.type === 'withdraw' ? '- ' : ''}
+                {getNumberToMoney(transaction.amount)}
               </td>
               <td>{transaction.category}</td>
               <td>

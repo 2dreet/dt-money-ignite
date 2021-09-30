@@ -44,6 +44,7 @@ createServer({
     this.post('/transactions', (schema, request) => {
       const data = JSON.parse(request.requestBody);
       // aqui insere o registro na tabela
+      data.createAt = new Date();
       return schema.create('transaction', data); 
     });
   }
