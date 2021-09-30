@@ -51,6 +51,10 @@ export function TransactionContextProvider({ children }:TransactionContextProvid
   );
 }
 
+
+// aqui criamos um Hook para facilitar a utilização
+// sem precisar importar o useContext e o TransactionContext
+// em todos os componentes que precisarem utilizar o contexto de transacao
 export function useTransactions() {
   const context = useContext(TransactionContext);
 
